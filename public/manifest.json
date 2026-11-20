@@ -1,0 +1,19 @@
+{
+  "name": "RamonMods SearchName",
+  "short_name": "SearchName",
+  "description": "Encontre o UID de um jogador de Free Fire pelo nickname, direto no celular.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070B08",
+  "theme_color": "#070B08",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

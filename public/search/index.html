@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buscar jogador por nickname — SearchName</title>
+<meta name="description" content="Busque jogadores de Free Fire pelo nickname e veja o UID de cada conta. Escolha a região, busque e copie o UID. Sem login e sem senha.">
+<meta name="theme-color" content="#070B08">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SearchName">
+<meta property="og:title" content="Buscar jogador por nickname — SearchName">
+<meta property="og:description" content="Nickname e região: a lista com o UID de cada conta de Free Fire.">
+<meta property="og:image" content="../assets/searchname-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Buscar jogador por nickname — SearchName">
+<meta name="twitter:description" content="Nickname e região: a lista com o UID de cada conta de Free Fire.">
+<meta name="twitter:image" content="../assets/searchname-preview.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../assets/favicon.svg">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SearchName">
+<link rel="preload" href="../assets/fonts/geist-normal-01.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/geist-mono-normal-02.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="search.css">
+</head>
+<body>
+
+<header class="sn-nav" id="nav">
+  <div class="sn-container sn-nav__inner">
+    <a class="sn-brand" href="../" aria-label="SearchName, início">
+      <span class="sn-brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-5.2-5.2"/></svg>
+      </span>
+      SearchName
+      <small>RamonMods</small>
+    </a>
+    <nav class="sn-nav__links" aria-label="Seções">
+      <a href="../#como-funciona">Como funciona</a>
+      <a href="../#resultado">Resultado</a>
+      <a href="../#regioes">Regiões</a>
+      <a href="../#duvidas">Dúvidas</a>
+    </nav>
+    <div class="sn-nav__end">
+      <a class="sn-btn sn-btn--ghost sn-btn--sm" href="../">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Voltar ao site
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="sn-tool">
+  <div class="sn-container sn-tool__grid">
+
+    <div class="sn-tool__main">
+      <div class="sn-head sn-reveal">
+        <span class="sn-kicker"><span class="sn-dot" aria-hidden="true"></span>SearchName · busca por nickname</span>
+        <h1 class="sn-tool__title">Buscar <span>jogador.</span></h1>
+        <p class="sn-lead">Digite o nickname, escolha a região e veja o UID de cada conta que combina com o nome.</p>
+      </div>
+
+      <form class="sn-find sn-find--tool" id="form" novalidate>
+        <label class="sn-find__label" for="nick">Nick</label>
+        <input id="nick" name="nick" type="text" placeholder="nome do jogador" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="32" required>
+        <div class="sn-find__region">
+          <label class="sn-sr" for="region">Região</label>
+          <select id="region" name="region">
+            <option value="BR" selected>BR</option>
+            <option value="US">US</option>
+            <option value="NA">NA</option>
+            <option value="SAC">SAC</option>
+            <option value="IND">IND</option>
+            <option value="ME">ME</option>
+            <option value="ID">ID</option>
+            <option value="TH">TH</option>
+            <option value="SG">SG</option>
+            <option value="PK">PK</option>
+            <option value="MY">MY</option>
+            <option value="PH">PH</option>
+            <option value="VN">VN</option>
+            <option value="BD">BD</option>
+            <option value="EU">EU</option>
+            <option value="RU">RU</option>
+            <option value="TW">TW</option>
+            <option value="AFR">AFR</option>
+          </select>
+        </div>
+        <button class="sn-btn sn-btn--accent" id="submit" type="submit">
+          <span id="submit-label">Buscar</span>
+        </button>
+      </form>
+      <p class="sn-tool__hint" id="hint" role="status" aria-live="polite">Mínimo de 3 caracteres. Acentos e símbolos contam.</p>
+
+      <section class="sn-panel sn-result" id="result" aria-live="polite" hidden>
+        <div class="sn-panel__bar">
+          <span id="status-kicker">resultado</span>
+          <b id="status-badge">—</b>
+        </div>
+
+        <div class="sn-result__meta">
+          <div><span>busca</span><b id="r-query">—</b></div>
+          <div><span>região</span><b id="r-region">—</b></div>
+          <div><span>tempo</span><b id="r-time">—</b></div>
+          <div><span>contas</span><b id="r-total">—</b></div>
+        </div>
+
+        <div class="sn-table sn-table--tool">
+          <div class="sn-table__head" aria-hidden="true">
+            <span>Nickname</span><span>UID</span><span>Nível</span><span class="sn-table__copycol">Copiar</span>
+          </div>
+          <div id="players"></div>
+        </div>
+
+        <p class="sn-panel__foot" id="result-note"></p>
+      </section>
+
+      <section class="sn-error" id="error" aria-live="assertive" hidden>
+        <strong id="error-title">Não foi possível buscar</strong>
+        <p id="error-text"></p>
+      </section>
+    </div>
+
+    <aside class="sn-tool__aside" aria-label="Sobre a busca">
+      <div class="sn-panel sn-aside">
+        <div class="sn-panel__bar"><span>o que você precisa</span><b>2 dados</b></div>
+        <div class="sn-aside__body">
+          <h2>Nick e região.</h2>
+          <ul class="sn-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>O nome como aparece no jogo</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A região do servidor</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nada mais</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sn-panel sn-aside">
+        <div class="sn-panel__bar"><span>o que nunca pedimos</span><b>0 dados</b></div>
+        <div class="sn-aside__body">
+          <h2>Nem senha, nem login.</h2>
+          <ul class="sn-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>Login ou senha da conta</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>Token ou código de acesso</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>E-mail ou telefone</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sn-panel sn-aside sn-aside--quiet">
+        <div class="sn-panel__bar"><span>limites</span><b>20 / min</b></div>
+        <div class="sn-aside__body">
+          <p class="sn-aside__note">Cache de 2 minutos por busca. O servidor gratuito hiberna quando fica sem uso: a primeira busca do dia pode demorar até 50 segundos.</p>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<footer class="sn-footer">
+  <div class="sn-container">
+    <div class="sn-footer__top">
+      <div class="sn-footer__brand">
+        <p>Search<span>Name</span></p>
+        <small>Busca de jogador por nickname. Um projeto RamonMods, sem vínculo com a Garena.</small>
+      </div>
+      <nav class="sn-footer__links" aria-label="Links">
+        <a href="../">Início</a>
+        <a href="../#como-funciona">Como funciona</a>
+        <a href="../#duvidas">Dúvidas</a>
+        <a href="https://github.com/RamonMods/SearchName-FF" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://pixgg.com/ramon" target="_blank" rel="noopener">PixGG</a>
+      </nav>
+    </div>
+    <div class="sn-footer__bottom">
+      <span>© <span id="ano">2026</span> RamonMods · Free Fire é marca da Garena</span>
+      <span>consulta pública · <a href="https://pixgg.com/ramon" target="_blank" rel="noopener">apoiar</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js" defer></script>
+<script src="search.js" defer></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("../sw.js").catch(function(){});}</script>
+</body>
+</html>

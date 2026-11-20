@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SearchName — achar UID de Free Fire pelo nickname</title>
+<meta name="description" content="Digite o nickname, escolha a região e veja o UID de cada conta de Free Fire que combina com o nome. Busca direta no servidor do jogo, sem login e sem senha.">
+<meta name="theme-color" content="#070B08">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SearchName">
+<meta property="og:title" content="SearchName — achar UID de Free Fire pelo nickname">
+<meta property="og:description" content="Nickname na mão, UID na tela. Busca por nome e região, sem login e sem senha.">
+<meta property="og:image" content="assets/searchname-preview.png">
+<meta property="og:image:alt" content="Tela inicial do SearchName com busca por nickname">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SearchName — achar UID de Free Fire pelo nickname">
+<meta name="twitter:description" content="Nickname na mão, UID na tela. Busca por nome e região, sem login e sem senha.">
+<meta name="twitter:image" content="assets/searchname-preview.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SearchName">
+<link rel="preload" href="assets/fonts/geist-normal-01.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-mono-normal-02.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<header class="sn-nav" id="nav">
+  <div class="sn-container sn-nav__inner">
+    <a class="sn-brand" href="./" aria-label="SearchName, início">
+      <span class="sn-brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-5.2-5.2"/></svg>
+      </span>
+      SearchName
+      <small>RamonMods</small>
+    </a>
+    <nav class="sn-nav__links" aria-label="Seções">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#resultado">Resultado</a>
+      <a href="#regioes">Regiões</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <div class="sn-nav__end">
+      <a class="sn-btn sn-btn--accent sn-btn--sm" href="search/">
+        Buscar nick
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="sn-hero" id="topo">
+  <div class="sn-container sn-hero__grid">
+
+    <div class="sn-hero__copy">
+      <span class="sn-kicker"><span class="sn-dot" aria-hidden="true"></span>Busca por nickname · Free Fire</span>
+      <h1 class="sn-hero__title">Ache o UID <span>pelo nome.</span></h1>
+      <p class="sn-hero__lead">Digite o nickname do jogador, escolha a região e receba o UID de cada conta que combina. Sem login, sem senha e sem pedir nada a ninguém.</p>
+
+      <form class="sn-find" id="hero-form" action="search/" method="get" role="search">
+        <label class="sn-find__label" for="hero-name">Nick</label>
+        <input id="hero-name" name="name" type="text" placeholder="nome do jogador" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="32" required>
+        <div class="sn-find__region">
+          <label class="sn-sr" for="hero-region">Região</label>
+          <select id="hero-region" name="region">
+            <option value="BR" selected>BR</option>
+            <option value="US">US</option>
+            <option value="NA">NA</option>
+            <option value="SAC">SAC</option>
+            <option value="IND">IND</option>
+            <option value="ME">ME</option>
+            <option value="ID">ID</option>
+            <option value="TH">TH</option>
+            <option value="SG">SG</option>
+            <option value="PK">PK</option>
+          </select>
+        </div>
+        <button class="sn-btn sn-btn--accent" type="submit">Buscar</button>
+      </form>
+
+      <div class="sn-hero__meta">
+        <span>Grátis</span><i aria-hidden="true"></i>
+        <span>Sem cadastro</span><i aria-hidden="true"></i>
+        <span>3 a 32 caracteres</span>
+      </div>
+    </div>
+
+    <div class="sn-console sn-reveal" role="img" aria-label="Exemplo de busca: o nickname Deus devolve três contas com UID">
+      <div class="sn-console__bar">
+        <span class="sn-console__lights" aria-hidden="true"><i></i><i></i><i></i></span>
+        busca · servidor
+        <b>BR</b>
+      </div>
+      <div class="sn-console__body">
+        <div class="sn-console__query"><span>›</span>nickname: Deus<span class="caret" aria-hidden="true"></span></div>
+        <div class="sn-console__rows">
+          <div class="sn-console__row">
+            <span class="sn-console__n">01</span>
+            <span class="sn-console__who"><b>DEUS !777</b><small>8684131934</small></span>
+            <span class="sn-console__tag">BR</span>
+          </div>
+          <div class="sn-console__row">
+            <span class="sn-console__n">02</span>
+            <span class="sn-console__who"><b>Deus (v)</b><small>7014630444</small></span>
+            <span class="sn-console__tag">BR</span>
+          </div>
+          <div class="sn-console__row">
+            <span class="sn-console__n">03</span>
+            <span class="sn-console__who"><b>Deus exe</b><small>5120394481</small></span>
+            <span class="sn-console__tag">BR</span>
+          </div>
+        </div>
+      </div>
+      <div class="sn-console__foot">
+        <span>● exemplo ilustrativo</span>
+        <span><b>3 contas</b> · 642 ms</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="sn-strip" aria-hidden="true">
+  <div class="sn-strip__row">
+    <span>BR</span><span>US</span><span>NA</span><span>SAC</span><span>IND</span><span>ME</span><span>ID</span><span>TH</span><span>SG</span><span>PK</span><span>MY</span><span>PH</span>
+    <span>BR</span><span>US</span><span>NA</span><span>SAC</span><span>IND</span><span>ME</span><span>ID</span><span>TH</span><span>SG</span><span>PK</span><span>MY</span><span>PH</span>
+  </div>
+</div>
+
+<section class="sn-section" id="como-funciona">
+  <div class="sn-container">
+    <div class="sn-head sn-reveal">
+      <span class="sn-index">01 — Como funciona</span>
+      <h2 class="sn-h2">Três passos. <em>Nenhum cadastro.</em></h2>
+      <p class="sn-lead">A busca vai direto ao servidor de jogo que o app usa. Você só informa o nome e a região.</p>
+    </div>
+
+    <div class="sn-steps">
+      <div class="sn-step sn-reveal">
+        <span class="sn-step__n">01 / digite</span>
+        <h3>Escreva o nickname</h3>
+        <p>De 3 a 32 caracteres, do jeito que aparece no jogo. Pode ser só parte do nome — a busca devolve todas as contas que combinam.</p>
+        <code>name=Deus</code>
+      </div>
+      <div class="sn-step sn-reveal">
+        <span class="sn-step__n">02 / escolha</span>
+        <h3>Selecione a região</h3>
+        <p>Cada região tem um cluster próprio. Escolher o lugar certo evita resultado vazio e faz a busca responder mais rápido.</p>
+        <code>region=BR</code>
+      </div>
+      <div class="sn-step sn-reveal">
+        <span class="sn-step__n">03 / copie</span>
+        <h3>Pegue o UID</h3>
+        <p>A lista mostra nickname, UID e nível de cada conta. Um clique copia o número para usar onde precisar.</p>
+        <code>uid=8684131934</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sn-section" id="resultado">
+  <div class="sn-container sn-split">
+
+    <div class="sn-head sn-reveal">
+      <span class="sn-index">02 — O resultado</span>
+      <h2 class="sn-h2">O que a busca <em>devolve.</em></h2>
+      <p class="sn-lead">Uma linha por conta encontrada, com os dados públicos do jogador. Nada de login, token ou acesso à conta.</p>
+      <ul class="sn-list">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Nickname e UID</b> — o par que identifica a conta.</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Nível e região</b> — quando o servidor devolve esses campos.</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Tempo de resposta</b> — em milissegundos, na tela.</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Até 10 contas</b> — o limite que o servidor aplica por busca.</span></li>
+      </ul>
+    </div>
+
+    <div class="sn-panel sn-reveal">
+      <div class="sn-panel__bar">
+        <span>searchname / resultado</span>
+        <b>3 contas · BR</b>
+      </div>
+      <div class="sn-table">
+        <div class="sn-table__head" aria-hidden="true">
+          <span>Nickname</span><span>UID</span><span>Nível</span><span>Região</span>
+        </div>
+        <div class="sn-table__row">
+          <span class="sn-table__nick">DEUS !777</span>
+          <span class="sn-table__uid">8684131934</span>
+          <span class="sn-table__num">01</span>
+          <span class="sn-table__num">BR</span>
+        </div>
+        <div class="sn-table__row">
+          <span class="sn-table__nick">Deus (v)</span>
+          <span class="sn-table__uid">7014630444</span>
+          <span class="sn-table__num">48</span>
+          <span class="sn-table__num">BR</span>
+        </div>
+        <div class="sn-table__row">
+          <span class="sn-table__nick">Deus exe</span>
+          <span class="sn-table__uid">5120394481</span>
+          <span class="sn-table__num">27</span>
+          <span class="sn-table__num">BR</span>
+        </div>
+      </div>
+      <div class="sn-panel__foot">
+        <span>exemplo ilustrativo</span>
+        <span>nível 0 = conta recém-criada</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sn-section" id="regioes">
+  <div class="sn-container">
+    <div class="sn-head sn-reveal">
+      <span class="sn-index">03 — Regiões</span>
+      <h2 class="sn-h2">A região certa <em>muda tudo.</em></h2>
+      <p class="sn-lead">Cada cluster responde pelos jogadores dele. Escolha a região do jogador; se não achar, tente a vizinha.</p>
+    </div>
+
+    <div class="sn-regions">
+      <div class="sn-region"><b>BR</b><small>Brasil</small></div>
+      <div class="sn-region"><b>US</b><small>Estados Unidos</small></div>
+      <div class="sn-region"><b>NA</b><small>América do Norte</small></div>
+      <div class="sn-region"><b>SAC</b><small>América do Sul</small></div>
+      <div class="sn-region"><b>IND</b><small>Índia</small></div>
+      <div class="sn-region"><b>ME</b><small>Oriente Médio</small></div>
+      <div class="sn-region"><b>ID</b><small>Indonésia</small></div>
+      <div class="sn-region"><b>TH</b><small>Tailândia</small></div>
+      <div class="sn-region"><b>SG</b><small>Singapura</small></div>
+      <div class="sn-region"><b>PK</b><small>Paquistão</small></div>
+      <div class="sn-region"><b>MY</b><small>Malásia</small></div>
+      <div class="sn-region"><b>PH</b><small>Filipinas</small></div>
+      <div class="sn-region"><b>VN</b><small>Vietnã</small></div>
+      <div class="sn-region"><b>BD</b><small>Bangladesh</small></div>
+      <div class="sn-region"><b>EU</b><small>Europa</small></div>
+      <div class="sn-region"><b>RU</b><small>Rússia</small></div>
+      <div class="sn-region"><b>TW</b><small>Taiwan</small></div>
+      <div class="sn-region"><b>AFR</b><small>África</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="sn-section" id="para-quem">
+  <div class="sn-container">
+    <div class="sn-head sn-reveal">
+      <span class="sn-index">04 — Para quem é</span>
+      <h2 class="sn-h2">Para quem precisa do UID <em>agora.</em></h2>
+    </div>
+    <div class="sn-cards">
+      <div class="sn-card sn-reveal">
+        <span class="sn-card__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+        <h3>Jogador</h3>
+        <p>Quer conferir o perfil de alguém que apareceu na partida sem precisar pedir o número no chat.</p>
+      </div>
+      <div class="sn-card sn-reveal">
+        <span class="sn-card__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M7 6V4h10v2"/><path d="M5 6l1 14h12l1-14"/><path d="M9 11v5"/><path d="M15 11v5"/></svg></span>
+        <h3>Quem vende conta</h3>
+        <p>Confere o UID antes de negociar e evita tratar a conta errada quando o nome é repetido.</p>
+      </div>
+      <div class="sn-card sn-reveal">
+        <span class="sn-card__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></span>
+        <h3>Quem joga no celular</h3>
+        <p>Abre no navegador, sem instalar nada e sem criar conta em lugar nenhum.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sn-section" id="duvidas">
+  <div class="sn-container sn-faq">
+    <div class="sn-faq__intro sn-reveal">
+      <span class="sn-index">05 — Dúvidas</span>
+      <h2 class="sn-h2">Perguntas <em>diretas.</em></h2>
+      <p class="sn-lead">O que a busca faz, de onde vem a resposta e o que ela nunca pede.</p>
+    </div>
+
+    <div class="sn-faq__list">
+      <details class="sn-faq__item" open>
+        <summary><span class="sn-faq__n">01</span>O que o SearchName faz?<span class="sn-faq__plus" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary>
+        <p>Você digita um nickname e escolhe a região. A ferramenta consulta o servidor de jogo e devolve as contas que combinam com o nome, cada uma com o seu UID.</p>
+      </details>
+      <details class="sn-faq__item">
+        <summary><span class="sn-faq__n">02</span>Preciso de login ou senha?<span class="sn-faq__plus" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary>
+        <p>Não. A ferramenta nunca pede login, senha ou token. O único dado necessário é o nickname público e a região do jogador.</p>
+      </details>
+      <details class="sn-faq__item">
+        <summary><span class="sn-faq__n">03</span>De onde vem a resposta?<span class="sn-faq__plus" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary>
+        <p>Da busca de contas do servidor de jogo da Garena, a mesma que o app usa. Não é uma API oficial documentada: o serviço é público, mas pode mudar sem aviso.</p>
+      </details>
+      <details class="sn-faq__item">
+        <summary><span class="sn-faq__n">04</span>Por que o mesmo nome aparece várias vezes?<span class="sn-faq__plus" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary>
+        <p>Nickname não é único no Free Fire. Várias contas podem usar o mesmo nome ou nomes parecidos — por isso a lista mostra todas, e o UID separa uma da outra.</p>
+      </details>
+      <details class="sn-faq__item">
+        <summary><span class="sn-faq__n">05</span>Não encontrei o nome. O que fazer?<span class="sn-faq__plus" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary>
+        <p>Confira a grafia, tente menos caracteres e troque a região. Acentos e símbolos precisam ser digitados do mesmo jeito que aparecem no jogo.</p>
+      </details>
+      <details class="sn-faq__item">
+        <summary><span class="sn-faq__n">06</span>Qual região devo escolher?<span class="sn-faq__plus" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary>
+        <p>A mesma em que o jogador joga. Brasil usa BR; há também US, NA, SAC, IND, ME, ID, TH, SG, PK e outras. Se a busca voltar vazia, tente a região vizinha.</p>
+      </details>
+      <details class="sn-faq__item">
+        <summary><span class="sn-faq__n">07</span>A ferramenta acessa ou altera contas?<span class="sn-faq__plus" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary>
+        <p>Não. Ela só lê a lista pública de contas que combinam com o nome. Não entra em conta, não altera dados e não recupera nada. Promessa de “recuperar conta por nickname” é golpe.</p>
+      </details>
+      <details class="sn-faq__item">
+        <summary><span class="sn-faq__n">08</span>Tem limite de buscas?<span class="sn-faq__plus" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary>
+        <p>20 buscas por minuto por IP, com cache de 2 minutos por consulta. A primeira busca do dia pode demorar mais porque o servidor gratuito hiberna quando fica sem uso.</p>
+      </details>
+      <details class="sn-faq__item">
+        <summary><span class="sn-faq__n">09</span>É oficial da Garena?<span class="sn-faq__plus" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary>
+        <p>Não. O RamonMods não é afiliado à Garena e o SearchName não é um produto dela. Free Fire é marca da Garena.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sn-cta">
+  <div class="sn-container sn-cta__inner">
+    <span class="sn-kicker"><span class="sn-dot" aria-hidden="true"></span>Pronto para buscar</span>
+    <h2>Nickname na mão.<br><span>UID na tela.</span></h2>
+    <p>Grátis, sem cadastro e sem instalar nada. Abra e busque.</p>
+    <a class="sn-btn sn-btn--accent sn-btn--lg" href="search/">
+      Abrir o SearchName
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+    <span class="sn-cta__note">pixgg.com/ramon · apoio opcional</span>
+  </div>
+</section>
+
+</main>
+
+<footer class="sn-footer">
+  <div class="sn-container">
+    <div class="sn-footer__top">
+      <div class="sn-footer__brand">
+        <p>Search<span>Name</span></p>
+        <small>Busca de jogador por nickname. Um projeto RamonMods, sem vínculo com a Garena.</small>
+      </div>
+      <nav class="sn-footer__links" aria-label="Links">
+        <a href="search/">Buscar</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a href="https://github.com/RamonMods/SearchName-FF" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://pixgg.com/ramon" target="_blank" rel="noopener">PixGG</a>
+      </nav>
+    </div>
+    <div class="sn-footer__bottom">
+      <span>© <span id="ano">2026</span> RamonMods · Free Fire é marca da Garena</span>
+      <span>feito para consulta pública · <a href="https://pixgg.com/ramon" target="_blank" rel="noopener">apoiar</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){});}</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+# .gitignore
+
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+
+# Render / build
+dist/
+build/
