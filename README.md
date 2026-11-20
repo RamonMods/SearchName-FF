@@ -62,7 +62,7 @@ Acesse: **https://ramonmods.github.io/SearchName-FF/**
 public/                 site estático (servido pelo próprio Flask) + PWA
   index.html            landing
   search/               ferramenta de busca por nickname
-  assets/               favicon, preview, fontes woff2
+  assets/               favicon, ícones PNG (PWA), preview, fontes woff2
   manifest.json         manifesto PWA (instalável no celular)
   sw.js                 service worker (cache offline)
 core/
