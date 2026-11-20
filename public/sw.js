@@ -12,6 +12,7 @@ const ASSETS = [
   "./search/search.js",
   "./manifest.json",
   "./assets/favicon.svg",
+  "./assets/icon-192.png",
 ];
 
 self.addEventListener("install", (event) => {
